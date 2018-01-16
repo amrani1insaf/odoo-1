@@ -4,12 +4,12 @@
 #
 # description: Odoo is a complete ERP and CRM software.
 #              
-# processname: openerp-server
-# pidfile: /var/run/openerp-server.pid
-# config: /etc/odoo/openerp-server.conf
+# processname: odoo
+# pidfile: /var/run/odoo.pid
+# config: /etc/odoo/odoo.conf
 
 ### BEGIN INIT INFO
-# Provides:             openerp-server
+# Provides:             odoo
 # Required-Start:       $remote_fs $syslog postgresql
 # Required-Stop:        $remote_fs $syslog postgresql
 # Should-Start:         $network
@@ -21,14 +21,14 @@
 ### END INIT INFO
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-NAME=openerp-server
+NAME=odoo
 DESC=Odoo
-DAEMON=/opt/openerp/odoo/openerp-server
+DAEMON=/opt/openerp/odoo/odoo
 PIDFILE=/var/run/$NAME.pid
 LOCKFILE=/tmp/$NAME.lock
-CONFIG=/etc/odoo/openerp-server.conf
+CONFIG=/etc/odoo/odoo.conf
 DAEMON_LOGFILE=/var/log/odoo/openerp-server-startup.log
-USER=openerp
+USER=odoo
 MAX_WAIT=15
 
 
