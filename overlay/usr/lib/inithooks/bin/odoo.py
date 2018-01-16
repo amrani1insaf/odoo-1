@@ -44,7 +44,7 @@ def main():
             "Odoo Database Managment Screen Password",
             "Enter new database management screen password. This is used for Odoo database functions.")
 
-    config = "/etc/odoo/openerp-server.conf"
+    config = "/etc/odoo/odoo.conf"
     system("sed -i \"s|admin_passwd =.*|admin_passwd = \"%s\"|\" %s" % (password, config))
 
 if __name__ == "__main__":
