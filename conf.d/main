@@ -3,7 +3,7 @@
 # Set variables
 #
  
-DB_USER=openerp
+DB_USER = odoo
 DB_PASS=$(mcookie)
 
 # We will use a random password for now. Set it during inithook
@@ -14,7 +14,7 @@ SERVICE_USER=$DB_USER
 
 OPENERP_DIR=/opt/openerp
 ODOO_DIR=$OPENERP_DIR/odoo
-CONF=/etc/odoo/openerp-server.conf
+CONF=/etc/odoo/odoo.conf
 
 
 # Install deps that can't be installed via package using pip
@@ -46,7 +46,7 @@ sed -i "s|db_password =.*|db_password = $DB_PASS|" $CONF
 # Intall wkhtmltox from Odoo - Used for HTML to PDF for reports 
 # *************************************************************
 #    We need the upstream version, taken from URL:
-#    https://www.odoo.com/documentation/8.0/setup/install.html
+#    https://www.odoo.com/documentation/11.0/setup/install.html
 # ---------------------------------------------------------------------------
 # Danager
 #  To print PDF reports, you must install wkhtmltopdf yourself: the version of 
@@ -69,7 +69,7 @@ ln -s /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
 
 # Install Odoo from GIT repo
 #
-git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
+git clone https://github.com/odoo/odoo.git --branch 11.0 --depth=1 $ODOO_DIR
 
 
 # Set admin password to random value for now
@@ -85,10 +85,10 @@ useradd -c "Odoo Service Account" -d "$OPENERP_DIR" -r -s "/bin/bash" $SERVICE_U
 usermod -L $SERVICE_USER
 
 # Add service to startup
-update-rc.d openerp-server defaults
+update-rc.d odoo defaults
 
 # Change ownership for Odoo config file
-chown $SERVICE_USER /etc/odoo/openerp-server.conf
+chown $SERVICE_USER /etc/odoo/odoo.conf
 
 # Create /var/lib/odoo
 mkdir /var/lib/odoo
