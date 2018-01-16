@@ -13,7 +13,7 @@ turnkey-odoo-14.1 (1) turnkey; urgency=low
 
   * Odoo
     
-      - Latest upstream version of odoo 8.0 branch via git
+      - Latest upstream version of odoo 11.0 branch via git
       - Fixed bugs #521, #522
 
   * Note: Please refer to turnkey-core's changelog for changes common to all
